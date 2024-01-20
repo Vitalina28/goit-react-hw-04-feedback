@@ -1,0 +1,10 @@
+.btn {
+    width: 60px;
+    height: 30px;
+    background-color: azure;
+    border: 1px solid greenyellow;
+&:not(:last-child) {
+        margin-right: 5px;
+    }
+}
+

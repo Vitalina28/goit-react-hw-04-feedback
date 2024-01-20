@@ -1,0 +1,12 @@
+.Container {
+  width: 600px;
+  height: 350px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.Title {
+  text-align: center;
+}

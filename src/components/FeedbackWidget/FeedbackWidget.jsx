@@ -12,13 +12,13 @@ export default function FeedbackWidget() {
   const handleFeedback = type => {
     switch (type) {
       case 'good':
-        setGood(good + 1);
+        setGood(prevGood => prevGood + 1);
         break;
       case 'neutral':
-        setNeutral(neutral + 1);
+        setNeutral(prevNeutral => prevNeutral + 1);
         break;
       case 'bad':
-        setBad(bad + 1);
+        setBad(prevBad => prevBad + 1);
         break;
       default:
         console.log('default');
@@ -66,62 +66,3 @@ export default function FeedbackWidget() {
     </div>
   );
 }
-
-// class FeedbackWidget extends Component {
-//   state = {
-//     good: 0,
-//     neutral: 0,
-//     bad: 0,
-//   };
-//   handleFeedback = data => {
-//     this.setState(prevState => ({ [data]: prevState[data] + 1 }));
-//   };
-
-//   countTotalFeedback = () => {
-//     const { good, neutral, bad } = this.state;
-//     return good + neutral + bad;
-//   };
-
-//   countPositiveFeedbackPercentage = () => {
-//     const total = this.countTotalFeedback();
-//     const { good } = this.state;
-
-//     return total === 0 ? 0 : Math.round((good / total) * 100);
-//   };
-
-//   render() {
-//     const { good, neutral, bad } = this.state;
-//     const total = this.countTotalFeedback();
-//     const positivePercentage = this.countPositiveFeedbackPercentage();
-
-//     const feedbackOptions = ['good', 'neutral', 'bad'];
-
-//     return (
-//       <div className={css.Container}>
-//         <div className={css.Title}>
-//           <h2>Please leave feedback</h2>
-//           <FeedbackOptions
-//             options={feedbackOptions}
-//             onLeaveFeedback={this.handleFeedback}
-//           />
-//         </div>
-//         <div className={css.Title}>
-//           <h2>Statistics</h2>
-//           {total ? (
-//             <Statistics
-//               good={good}
-//               neutral={neutral}
-//               bad={bad}
-//               total={total}
-//               positivePercentage={positivePercentage}
-//             />
-//           ) : (
-//             <Notification message="There is no feedback" />
-//           )}
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
-// export default FeedbackWidget;
